@@ -1,0 +1,75 @@
+<div ng-show="student==null" class="col-sm-12 col-12 col-md-12 col-lg-12 col-xl-11 rounded mx-auto">
+  <div
+    class="row d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 rounded mx-lg-2 mx-md-2"
+    style="background-image: url(../img/H4tz.gif); background-repeat: no-repeat; background-size: cover;">
+
+    <div class="col-sm-12 col-12 col-md-7 col-lg-7 col-xl-7">
+      <div class="row d-flex justify-content-center text-white">
+        <h2 class="font-weight-bold mb-3 ">Trang web thi trực tuyến</h2>
+        <p class="lead py-3">
+          Đăng nhập or đăng kí để được tham gia thi
+        </p>
+      </div>
+      <div class="row d-flex justify-content-center mt-4">
+        <a name="" id="" style="right: 20px;" class="btn btn-primary position-relative rounded-pill" href="#!login"
+          role="button">Đăng nhập</a>
+        <a name="" id="" class="btn btn-primary rounded-pill" href="#!register" role="button">Đăng kí</a>
+      </div>
+    </div>
+    <div class="col-sm-6 col-7 col-md-3 col-lg-3 col-xl-3 mt-4 mt-md-0">
+      <div class="row justify-content-center">
+        <img src="../img/R.png" alt="" style="width: 40%;">
+      </div>
+      <div class="row justify-content-center">
+        <img src="../img/R.png" alt="" style="width: 40%;">
+      </div>
+    </div>
+    <div class="col-sm-2 col-5 col-md-2 col-lg-2 col-xl-2 mt-4 mt-md-0">
+      <div class="row">
+        <img src="../img/R.png" alt="" style="width: 40%;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-12 col-12 col-md-12 col-lg-12 col-xl-11  rounded responsive">
+
+  <div class=" rounded mx-lg-4 mx-md-4">
+
+    <div class="row d-flex justify-content-center rounded bg-light mb-5" style="padding-bottom: 100px;">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="row d-flex justify-content-center mt-4">
+          <h3 class="font-weight-bold mb-3 ">Danh sách thi</h3>
+        </div>
+      </div>
+
+      <div  class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="row p-2">
+          <div ng-repeat="sb in list_subject | limitTo:6:cout" class="col-lg-4 col-md-6 col-sm-12 col-12 col-xl-4 my-2">
+            <div class="card" style="height: 400px;">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-tv" style=" color: aqua;"></i></h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{sb.Name}}</h6>
+                <img src="../Asm-TaiNguyen/Asm-TaiNguyen/images/logos/{{sb.Logo}}" class="w-50 d-flex mx-auto" alt="">
+              
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                  of the
+                  card's content.</p>
+                <a name="" id="" class="btn d-block btn-primary rounded-pill mx-auto" style="width: max-content;"
+                  href="#!viewtest/{{sb.Id}}" role="button">Chi tiết</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row d-flex justify-content-center align-items-center ">
+          <button ng-click="prev()" class="btn btn-primary position-relative " style="right: 20px;"><i class="fas fa-chevron-circle-left"></i></button>
+          <button ng-click="next()" class="btn btn-primary"><i class="fas fa-chevron-circle-right"></i></button>
+      </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>

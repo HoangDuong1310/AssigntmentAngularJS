@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script data-require="angular-mocks@*" data-semver="1.8.2"
+        src="https://code.angularjs.org/1.8.2/angular-mocks.js"></script>
+    <style>
+        .loading {
+            background: rgba(0, 0, 0, .5);
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+
+        .spinner-center {
+            top: 50%;
+            left: 50%;
+            position: absolute;
+        }
+    </style>
+
+</head>
+
+<body ng-app="qlsv">
+    <div ng-controller="myctrl">
+        <div ng-show="isLoading" class="loading">
+            <div class="spinner-border text-primary spinner-center" role="status">
+            </div>
+        </div>
+        <form ng-submit="onFormSubmit($event)" action="" class="col-8 offset-2">
+            <div class="form-group mt-3">
+                <label for="">Họ tên:</label>
+                <input class="form-control" type="text" ng-model="student.name">
+            </div>
+            <div class="form-group mt-3">
+                <label for="">Mã SV</label>
+                <input class="form-control" type="text" ng-model="student.code">
+            </div>
+            <div class="form-group mt-3">
+                <label for="">Chuyên ngành</label>
+                <input class="form-control" ng-model="student.chuyen_nganh">
+            </div>
+            <div class="form-group mt-3">
+                <button class="btn btn-primary">Lưu</button>
+                <button type="reset" class="btn btn-default ml-3">Xóa form</button>
+            </div>
+        </form>
+        <div class="col-8 offset-2">
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Họ tên</th>
+                        <th>Mã SV</th>
+                        <th>Chuyên ngành</th>
+                        <th colspan="2">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="sv in students">
+                        <td>{{ sv.id }}</td>
+                        <td>{{ sv.name }}</td>
+                        <td>{{ sv.code }}</td>
+                        <td>{{ sv.chuyen_nganh }}</td>
+                        <td>
+                            <button class="btn btn-primary">Sửa</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#modal_delete_{{ sv.id }}">Xóa</button>
+
+                            <div class="modal fade" id="modal_delete_{{ sv.id }}" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Xóa</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Xác nhận xóa?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Đóng</button>
+                                            <button type="button" ng-click="onDelete(sv.id)"
+                                                class="btn btn-danger">Xóa</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script>
+        var app = angular.module('qlsv', [])
+        app.controller("myctrl", function ($scope, $http) {
+            // Khởi tạo
+            $scope.students = [];
+            $scope.isLoading = false;
+            const api = 'https://62a4fb6f259aba8e10f08604.mockapi.io/Asm_Student/Asm_Student';
+
+            $scope.isLoading = true; // Bắt đầu gửi request
+            $http.get(api) // Gửi 1 request dạng GET tới API
+                .then(function (response) {
+                    $scope.isLoading = false;
+                    // Nhận dữ liệu trả về
+                    $scope.students = response.data;
+                })
+                .catch(function (error) {
+                    console.error(error);
+                    $scope.isLoading = false;
+                });
+
+            $scope.onFormSubmit = function (event) {
+                event.preventDefault();
+                // TODO: ...
+                // if ($scope.index == -1) {
+                //     // Thêm mới
+                //     $http.post(api, $scope.student)
+                //     .then(function (response) {
+                //         const sv = response.data;
+                //         $scope.students.push(sv);
+                //     });
+                // } else {
+                //     // Cập nhật
+                //     $http.put();
+                // }
+
+                $http.post(api, $scope.student)
+                    .then(function (response) {
+                        const sv = response.data;
+                        $scope.students.push(sv);
+                    });
+            }
+
+            $scope.onDelete = function (id) {
+                const deleteApi = api + '/' + id;
+                $http.delete(deleteApi)
+                    .then(function (response) {
+                        console.log(response);
+                        // Xóa khỏi table
+                    });
+            }
+        });
+
+
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

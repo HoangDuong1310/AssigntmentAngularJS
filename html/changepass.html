@@ -1,0 +1,49 @@
+<div class="col-sm-12 col-12 col-md-12 col-lg-12 col-xl-11 rounded mx-auto">
+    <div
+        class="row d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 rounded mx-lg-2 mx-md-2">
+
+        <div class="col-sm-11 col-11 col-md-10 col-lg-9 col-xl-9">
+            <div class="row d-flex justify-content-center text-dark">
+                <div class="card text-left" style="width: 500px;">
+                  <img class="card-img-top rounded shadow " height="150px"  src="../img/H4tz.gif" alt="">
+                   <h2 class="position-absolute text-white font-weight-bold text-login ">
+                    Đổi mật khẩu
+                   </h2>
+                  <div class="card-body">
+                    <form name="formchang" class="bg-light">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input name="txtUser" ng-model="studentUniver.username" type="text" class="form-control" required maxlength="30" minlength="4" id="username" aria-describedby="emailHelp">
+                            <small id="username" ng-show="formchang.txtUser.$invalid"  class="form-text text-muted">Vui lòng nhập tài khoản</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input name="txtPass" ng-model="studentUniver.password" type="password" class="form-control" required maxlength="30" minlength="4" id="password" aria-describedby="emailHelp">
+                            <small id="password" ng-show="formchang.txtPass.$invalid"  class="form-text text-muted">Vui lòng nhập pass</small>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="repassword">New password</label>
+                            <input name="txtRepass" ng-model="newpasschange" type="password" class="form-control" required maxlength="30" minlength="4" id="repassword" aria-describedby="emailHelp">
+                            <small id="repassword" ng-show="formchang.txtRepass.$error.required"  class="form-text text-danger">Vui lòng nhập mật khẩu mới</small>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="repassword">Confirm password</label>
+                            <input re-pass-change name="txtCof" ng-model="cofpass" type="password" class="form-control" required maxlength="30" minlength="4" id="repassword" aria-describedby="emailHelp">
+                            <small id="repassword" ng-show="formchang.txtCof.$error.required"  class="form-text text-danger">Vui lòng nhập lại mật khẩu</small>
+                            <small id="repassword" ng-show="formchang.txtCof.$invalid && !formchang.txtCof.$error.required"  class="form-text text-danger">Mật khẩu nhập lại không khớp</small>
+                        </div>
+                        <div class="form-group">
+                            <button ng-click='change()' ng-disabled="formchang.$invalid" class="btn btn-primary ">Submit</button>
+                        </div>
+    
+                    </form>
+                  </div>
+                </div>
+             
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,109 @@
+<div class="col-sm-12 col-12 col-md-12 col-lg-12 col-xl-11 rounded mx-auto">
+    <div
+        class="row d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 rounded mx-lg-2 mx-md-2">
+
+        <div class="col-sm-11 col-11 col-md-10 col-lg-9 col-xl-9">
+            <div class="row d-flex justify-content-center text-dark">
+                <div class="card text-left" style="width: 500px;">
+                    <img class="card-img-top rounded shadow " height="150px"  src="../img/H4tz.gif" alt="">
+                   <h2 class="position-absolute  text-white font-weight-bold text-login ">
+                    Đăng kí 
+                   </h2>
+                    <div class="card-body">
+                        <form name="formRegister" class="bg-light">
+
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input name="txtUser" ng-model="studentUniver.username" type="text" class="form-control" required maxlength="30" minlength="4" id="username" aria-describedby="emailHelp">
+                                <small id="username" ng-show="formRegister.txtUser.$error.required"  class="form-text text-danger">Vui lòng tên tài khoản</small>
+                                <small id="username" ng-show="formRegister.txtUser.$error.maxlength"  class="form-text text-danger">Vui lòng không nhập quá 30 kí tự</small>
+                                <small id="username" ng-show="formRegister.txtUser.$error.minlength"  class="form-text text-danger">Tên tài khoản phải lớn hơn 4 kí tự</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input name="txtPass" ng-model="studentUniver.password" type="password" class="form-control" required maxlength="30" minlength="4" id="password" aria-describedby="emailHelp">
+                                <small id="password" ng-show="formRegister.txtPass.$error.required" class="form-text text-danger">Vui lòng nhập pass</small>
+                                <small id="password" ng-show="formRegister.txtPass.$error.maxlength"  class="form-text text-danger">Không nhập mật khẩu quá 30 kí tự</small>
+                                <small id="password" ng-show="formRegister.txtPass.$error.maxlength"  class="form-text text-danger">Không nhập mật khẩu ít hơn 4 kí tự</small>
+                           
+                            </div>
+                            <div class="form-group">
+
+                                <label for="repassword">ResPassword</label>
+                                <input re-pass name="txtRepass" name="repassword" ng-model="repassword" type="password" class="form-control" required maxlength="30" minlength="4" id="repassword" aria-describedby="emailHelp">
+                                <small id="repassword" ng-show="formRegister.txtRepass.$error.required"  class="form-text text-danger">Vui lòng nhập lại mật khẩu</small>
+                                <small id="repassword" ng-show=" formRegister.txtRepass.$invalid && !formRegister.txtPass.$invalid " class="form-text text-danger">Mật khẩu nhập lại không khớp</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="fullname">Fullname</label>
+                                <input name="txtFullname" ng-model="studentUniver.fullname" type="text" class="form-control" required maxlength="60" minlength="4" id="fullname" aria-describedby="emailHelp">
+                                <small id="fullname" ng-show="formRegister.txtFullname.$error.required"  class="form-text text-danger">Vui lòng nhập full name tài khoản</small>
+                                <small id="fullname" ng-show="formRegister.txtFullname.$error.maxlength"  class="form-text text-danger">Vui lòng không nhập quá 60 kí tự</small>
+                                <small id="fullname" ng-show="formRegister.txtFullname.$error.minlength"  class="form-text text-muted">Tên tài khoản phải lớn hơn 4 kí tự</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input name="txtEmail" ng-model="studentUniver.email" type="email" class="form-control" required maxlength="30" minlength="4" id="email" aria-describedby="emailHelp">
+                                <small id="email" ng-show="formRegister.txtEmail.$error.required"  class="form-text text-danger">Vui lòng email</small>
+                                <small id="email" ng-show="formRegister.txtEmail.$error.maxlength"  class="form-text text-danger">Vui lòng không nhập quá 30 kí tự</small>
+                                <small id="email" ng-show="formRegister.txtEmail.$error.minlength"  class="form-text text-danger">Vui lòng không nhập ít hơn 4 kí tự</small>
+                                <!-- <small id="email" ng-show="formRegister.txtEmail.pattern"  class="form-text text-danger">Email không đúng định dạng</small> -->
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <label for="gt">Giới tính</label>
+
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input ng-model="studentUniver.gender" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                        value="Nam">
+                                    <label class="form-check-label" for="inlineRadio1">Nam</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                   
+                                    <input ng-model="studentUniver.gender" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                        value="Nữ">
+                                    <label class="form-check-label" for="inlineRadio2">Nữ</label>
+                                </div>
+                            </div>
+                           
+                            <div class="form-group">
+                                <label for="ngay">Ngày sinh (dd/MM/yyyy)</label>
+                                <input name="birthday" ng-model="studentUniver.birthday" type="text" id="birthday" class="form-control border-indigo" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" required>
+                                <small ng-show="formRegister.birthday.$error.required" class="form-text text-danger">Vui lòng nhập ngày sinh</small>
+                                <small ng-show="formRegister.birthday.$error.pattern" class="form-text text-danger">Không đúng định dạng ngày sinh</small>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">$</span>
+                                    </div>
+                                    <input name="txtFee" ng-model="studentUniver.schoolfee" type="number" class="form-control" required min="2000000" aria-label="Amount (to the nearest dollar)">
+                                    <div class="input-group-append">
+                                      <span class="input-group-text">.00</span>
+                                    </div>
+                                   
+                                </div>
+                                <div>
+                                    <small ng-show="formRegister.txtFee.$error.required" id="schoolfee" class="form-text text-danger">Vui lòng nhập học phí</small>
+                                    <small ng-show="formRegister.txtFee.$error.min" id="schoolfee" class="form-text text-danger">Học phí phải hơn 2 triệu</small>
+                                 
+                                </div>
+                            </div>    
+
+                            <div class="form-group">
+                                <button ng-click="register()" type="submit" class="btn btn-primary ">Submit</button>
+                                <button ng-click="cancel()" type="submit" class="btn btn-primary ">Hủy</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

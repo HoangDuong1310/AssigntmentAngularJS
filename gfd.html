@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<div>
+		sdfghjkl
+	</div>
+	<script>
+
+		function shuffleArray(array) {
+			var m = array.length,
+				t, i;
+			while (m) {
+				i = Math.floor(Math.random() * m--);
+				t = array[m];//hoán đổi mảng tại chỗ
+				array[m] = array[i];
+				array[i] = t;
+			}
+				console.log(array)
+			return array;
+		}
+		function random() {
+			var n = [0, 3, 12, 2, 4, 6, 22, 7, 9, 10, 11];
+			if (n.length > 10 && n.length >0) {
+				n.length = 6;
+				shuffleArray(n);
+				console.log(shuffleArray(n));
+				return true;
+			}else{
+				return false;
+			}
+		}
+		random();
+	</script>
+</body>
+
+</html>

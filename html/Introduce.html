@@ -1,0 +1,37 @@
+<div class="col-sm-12 col-12 col-md-12 col-lg-12 col-xl-11  rounded responsive">
+
+    <div class=" rounded mx-lg-4 mx-md-4">
+
+        <div class="row d-flex justify-content-center rounded bg-light mb-5" style="padding-bottom: 100px;">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="row d-flex justify-content-center mt-4">
+                    <h2 class="font-weight-bold mb-3">Giới thiệu</h2>
+                    <p class=" py-3 px-2">
+                        If you want to navigate to different pages in your application,
+                        but you also want the application to be a SPA (Single Page Application),
+                        with no page reloading, you can use the ngRoute module.
+                        The ngRoute module routes your application to different pages without
+                        reloading the entire application.
+                    </p>
+                    <a class="blue-text font-weight-bold" href="#">Learn more
+                        <i class="fa fa-chevron-right pl-1"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="row p-2">
+                    <div ng-repeat="sb in list_subject | limitTo:6:1" class="col-lg-4 col-md-6 col-sm-12 col-12 col-xl-4 my-2">
+                        <div  class=" mt-3 text-center">
+                            <img src="../Asm-TaiNguyen/Asm-TaiNguyen/images/logos/{{sb.Logo}}" class="w-50 d-flex mx-auto"
+                                alt="">
+                            <p class="font-weight-bold">{{sb.Name}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

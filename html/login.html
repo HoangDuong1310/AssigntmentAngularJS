@@ -1,0 +1,37 @@
+<div class="col-sm-12 col-12 col-md-12 col-lg-12 col-xl-11 rounded mx-auto">
+    <div
+        class="row d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 rounded mx-lg-2 mx-md-2">
+
+        <div class="col-sm-11 col-11 col-md-10 col-lg-9 col-xl-9">
+            <div class="row d-flex justify-content-center text-dark">
+                <div class="card text-left " style="width: 500px;">
+                  <img class="card-img-top rounded shadow " height="150px"  src="../img/H4tz.gif" alt="">
+                   <h2 class="position-absolute  text-white font-weight-bold text-login ">
+                    Đăng nhập  
+                   </h2>
+                  <div class="card-body">
+                    <form name="formLogin" class="bg-light">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input name="txtUser" ng-model="username" type="text" class="form-control" required maxlength="30" minlength="4" id="username" aria-describedby="emailHelp">
+                            <small id="username" ng-show="formLogin.txtUser.$invalid"  class="form-text text-muted">Vui lòng nhập tài khoản</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input name="txtPass" ng-model="password" type="password" class="form-control" required maxlength="30" minlength="4" id="password" aria-describedby="emailHelp">
+                            <small id="password" ng-show="formLogin.txtPass.$invalid"  class="form-text text-muted">Vui lòng nhập pass</small>
+                        </div>
+                        <!-- {{list_students | json }} -->
+                        <div class="form-group">
+                            <button ng-click='login()' ng-disabled="formLogin.$invalid" class="btn btn-primary ">Submit</button>
+                        </div>
+    
+                    </form>
+                  </div>
+                </div>
+             
+            </div>
+        </div>
+
+    </div>
+</div>
